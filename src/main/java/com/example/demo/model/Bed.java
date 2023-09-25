@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 
@@ -12,44 +13,34 @@ import java.io.Serializable;
 public class Bed implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "house_id", referencedColumnName = "id")
-    private House houseId;
+    @ManyToOne
+    @JoinColumn(name = "house_id")
+    @JsonIgnore
+    private House house;
 
 
     @Column
     private String userId;
 
-    public Bed(House houseId) {
-        this.houseId = houseId;
+    public Bed(House house) {
+        this.house = house;
     }
 
     public Bed() {
 
     }
 
-    public Long getId() {
-        return id;
-    }
-
     public void setId(Long id) {
         this.id = id;
     }
 
-    public House getHouseId() {
-        return houseId;
-    }
-
-    public void setHouseId(House houseId) {
-        this.houseId = houseId;
-    }
-
-    public String getUserId() {
-        return userId;
+    public void setHouse(House house) {
+        this.house = house;
     }
 
     public void setUserId(String userId) {
