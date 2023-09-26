@@ -8,7 +8,7 @@ Le projet à pour but de permettre au utilisateur de créer une collocation avec
 
 - cloner le projet avec Intellij
 - switcher sur votre branche
-- Faite un `git pull origin master` pour synchro votre branche avec la version stable la plus récente 
+- Faite un `git pull origin main` pour synchro votre branche avec la version stable la plus récente 
 - Installer les dépendances Maven
 
 # Base de données 
@@ -18,5 +18,5 @@ Le projet à pour but de permettre au utilisateur de créer une collocation avec
 - Pour ouvrir la base de données dans Intellij : Onglet base de données et ajouter localhost:3306, tester la connexion et chercher la databases collocation
 
 # Lancer l'application
-- Faite un `git pull origin master` pour avoir les dernières mises à jour si cela fait longtemps que vous n'avez pas travailler sur le projet
+- Faite un `git pull origin main` pour avoir les dernières mises à jour si cela fait longtemps que vous n'avez pas travailler sur le projet
 - Avec la petite fleche verte :)
