@@ -22,14 +22,20 @@ public class House implements Serializable {
     private String name;
 
     @Column
+    private String description;
+
+    @Column
     private Integer bed;
+
+    private Integer bedAvailable;
 
     @OneToMany(mappedBy = "house")
     private Set<Bed> beds;
 
-    public House(String name, Integer bed) {
+    public House(String name, Integer bed, String description) {
         this.name = name;
         this.bed = bed;
+        this.description = description;
     }
 
     public House() {
@@ -60,4 +66,19 @@ public class House implements Serializable {
         this.bed = bed;
     }
 
+    public Integer getBedAvailable() {
+        return bedAvailable;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setBedAvailable(Integer bedAvailable) {
+        this.bedAvailable = bedAvailable;
+    }
 }
