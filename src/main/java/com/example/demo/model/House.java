@@ -5,6 +5,8 @@ import lombok.Getter;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.List;
+import java.util.Set;
 
 @Getter
 @Entity
@@ -21,6 +23,9 @@ public class House implements Serializable {
 
     @Column
     private Integer bed;
+
+    @OneToMany(mappedBy = "house")
+    private Set<Bed> beds;
 
     public House(String name, Integer bed) {
         this.name = name;
@@ -54,4 +59,5 @@ public class House implements Serializable {
     public void setBed(Integer bed) {
         this.bed = bed;
     }
+
 }
