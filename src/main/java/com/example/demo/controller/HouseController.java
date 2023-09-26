@@ -30,12 +30,12 @@ public class HouseController {
 
     @GetMapping({"", "/"})
     public ResponseEntity<List<House>> getAll(){
-        return ResponseEntity.ok(houseService.getAll());
+        return ResponseEntity.ok(houseService.findAll());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<House> getById(@PathVariable("id") Long id){
-        return ResponseEntity.ok(houseService.getById(id));
+        return ResponseEntity.ok(houseService.findById(id));
     }
 
     @PostMapping("/add")
@@ -48,13 +48,13 @@ public class HouseController {
             bedService.save(newBed);
         }
 
-        return houseService.getById(house.getId());
+        return houseService.findById(house.getId());
     }
 
     @PostMapping("/{id}/book")
     public void book(@PathVariable(value="id") Long id, @RequestBody BookBedDTO request) {
         //check availability
-        House house = houseService.getById(id);
+        House house = houseService.findById(id);
         Set<Bed> beds = house.getBeds();
 
         List<Bed> bedsAvailable = new ArrayList<>();

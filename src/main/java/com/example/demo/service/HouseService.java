@@ -15,11 +15,11 @@ public class HouseService {
         this.houseRepository = houseRepository;
     }
 
-    public List<House> getAll(){
+    public List<House> findAll(){
         return houseRepository.findAll();
     }
 
-    public House getById(long id){
+    public House findById(long id){
         return houseRepository.findById(id).orElse(null);
     }
 

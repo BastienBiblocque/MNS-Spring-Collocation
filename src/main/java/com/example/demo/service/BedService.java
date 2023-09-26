@@ -17,6 +17,14 @@ public class BedService {
         this.bedRepository = bedRepository;
     }
 
+    public Iterable<Bed> findAll(){
+        return bedRepository.findAll();
+    }
+
+    public Bed findById(long id){
+        return bedRepository.findById(id).orElse(null);
+    }
+
     public Bed save(Bed bed) {
         bedRepository.save(bed);
         return bed;
