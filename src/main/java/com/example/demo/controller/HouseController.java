@@ -72,13 +72,13 @@ public class HouseController {
             bedService.save(newBed);
         }
 
-        return houseService.getById(house.getId());
+        return houseService.findById(house.getId());
     }
 
     @PostMapping("/{id}/book")
     public void book(@PathVariable(value="id") Long id, @RequestBody BookBedDTO request) {
         //check availability
-        House house = houseService.getById(id);
+        House house = houseService.findById(id);
         Set<Bed> beds = house.getBeds();
 
         List<Bed> bedsAvailable = new ArrayList<>();

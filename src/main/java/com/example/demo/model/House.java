@@ -35,7 +35,9 @@ public class House implements Serializable {
     public House(String name, Integer bed, String description) {
         this.name = name;
         this.bed = bed;
+        this.id = 0L;
         this.description = description;
+
     }
 
     public House() {
@@ -65,6 +67,13 @@ public class House implements Serializable {
     public void setBed(Integer bed) {
         this.bed = bed;
     }
+
+    public Set<Bed> getBeds() {
+        return beds;
+    }
+
+    public void setBeds(Set<Bed> beds) {
+        this.beds = beds;
 
     public Integer getBedAvailable() {
         return bedAvailable;
