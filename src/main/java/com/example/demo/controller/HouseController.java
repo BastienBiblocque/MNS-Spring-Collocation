@@ -30,17 +30,41 @@ public class HouseController {
 
     @GetMapping({"", "/"})
     public ResponseEntity<List<House>> getAll(){
-        return ResponseEntity.ok(houseService.findAll());
+        List<House> houses = houseService.getAll();
+
+        for (House house : houses) {
+            int bedAvailable = 0;
+            Set<Bed> beds = house.getBeds();
+            for (Bed bed : beds) {
+                if (bed.getUserId() == null) {
+                    bedAvailable++;
+                }
+            }
+            house.setBedAvailable(bedAvailable);
+        }
+
+        return ResponseEntity.ok(houseService.getAll());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<House> getById(@PathVariable("id") Long id){
-        return ResponseEntity.ok(houseService.findById(id));
+        House house = houseService.getById(id);
+
+        Set<Bed> beds = house.getBeds();
+        int bedAvailable = 0;
+        for (Bed bed : beds) {
+            if (bed.getUserId() == null) {
+                bedAvailable++;
+            }
+        }
+        house.setBedAvailable(bedAvailable);
+
+        return ResponseEntity.ok(houseService.getById(id));
     }
 
     @PostMapping("/add")
     public House post(@RequestBody CreateHouseDTO request) {
-        House house = new House(request.name, request.bed);
+        House house = new House(request.name, request.bed, request.description);
         houseService.save(house);
 
         for (int i = 0; i < request.bed; i++) {

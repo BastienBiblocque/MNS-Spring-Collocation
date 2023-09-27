@@ -3,6 +3,7 @@ package com.example.demo.DTO;
 public class CreateHouseDTO {
     public String name;
     public Integer bed;
+
     public String getName() {
         return name;
     }
@@ -18,4 +19,7 @@ public class CreateHouseDTO {
     public void setBed(Integer bed) {
         this.bed = bed;
     }
+
+    public String description;
+
 }
