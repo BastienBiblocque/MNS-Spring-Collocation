@@ -4,6 +4,7 @@ import com.example.demo.model.Bed;
 import com.example.demo.model.House;
 import com.example.demo.repository.BedRepository;
 import com.example.demo.repository.HouseRepository;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -19,6 +20,7 @@ public class BedServiceTest {
     @Autowired
     private BedRepository bedRepository;
 
+    @Test
     void testGet() {
         //given
         House house = new House("maison", 1);

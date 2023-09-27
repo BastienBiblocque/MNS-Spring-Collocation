@@ -30,6 +30,7 @@ public class House implements Serializable {
     public House(String name, Integer bed) {
         this.name = name;
         this.bed = bed;
+        this.id = 0L;
     }
 
     public House() {
@@ -60,4 +61,11 @@ public class House implements Serializable {
         this.bed = bed;
     }
 
+    public Set<Bed> getBeds() {
+        return beds;
+    }
+
+    public void setBeds(Set<Bed> beds) {
+        this.beds = beds;
+    }
 }
