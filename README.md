@@ -20,3 +20,7 @@ Le projet à pour but de permettre au utilisateur de créer une collocation avec
 # Lancer l'application
 - Faite un `git pull origin main` pour avoir les dernières mises à jour si cela fait longtemps que vous n'avez pas travailler sur le projet
 - Avec la petite fleche verte :)
+
+# Swagger
+- Pour accéder au swagger vous pouvez passer par la route /api-docs
+- Pour obtenir le yaml vous pouvez passer par la route /api-docs.yaml et il se trouve aussi à la racine du projet

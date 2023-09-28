@@ -1,0 +1,143 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- url: http://localhost:8083
+  description: Generated server url
+paths:
+  /house/{id}/book:
+    post:
+      tags:
+      - house-controller
+      operationId: book
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BookBedDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+  /house/add:
+    post:
+      tags:
+      - house-controller
+      operationId: post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateHouseDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/House'
+  /house/{id}:
+    get:
+      tags:
+      - house-controller
+      operationId: getById
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/House'
+  /house:
+    get:
+      tags:
+      - house-controller
+      operationId: getAll
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/House'
+  /house/:
+    get:
+      tags:
+      - house-controller
+      operationId: getAll_1
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/House'
+components:
+  schemas:
+    BookBedDTO:
+      type: object
+      properties:
+        userId:
+          type: string
+        quantity:
+          type: integer
+          format: int32
+    CreateHouseDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        bed:
+          type: integer
+          format: int32
+        description:
+          type: string
+    Bed:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        userId:
+          type: string
+    House:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        description:
+          type: string
+        bed:
+          type: integer
+          format: int32
+        bedAvailable:
+          type: integer
+          format: int32
+        beds:
+          uniqueItems: true
+          type: array
+          items:
+            $ref: '#/components/schemas/Bed'
