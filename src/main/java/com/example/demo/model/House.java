@@ -74,6 +74,8 @@ public class House implements Serializable {
 
     public void setBeds(Set<Bed> beds) {
         this.beds = beds;
+    }
+
 
     public Integer getBedAvailable() {
         return bedAvailable;
