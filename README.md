@@ -23,4 +23,4 @@ Le projet à pour but de permettre au utilisateur de créer une collocation avec
 
 # Swagger
 - Pour accéder au swagger vous pouvez passer par la route /api-docs
-- Pour obtenir le yaml vous pouvez passer par la route /api-docs.yaml et il se trouve aussi à la racine du projet
+- Pour obtenir le yaml vous pouvez passer par la route /api-docs.yaml et il se trouve aussi à la racine du projet 
